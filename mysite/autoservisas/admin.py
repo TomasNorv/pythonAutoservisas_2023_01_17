@@ -12,6 +12,7 @@ class UzsakymoEiluteInLines(admin.TabularInline):
     extra = 0
 class UzsakymasAdmin(admin.ModelAdmin):
     inlines = [UzsakymoEiluteInLines]
+    list_display = ("automobilis","data" )
 
 admin.site.register(Automobilis)
 admin.site.register(AutomobilioModelis)
