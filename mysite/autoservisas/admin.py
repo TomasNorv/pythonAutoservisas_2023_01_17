@@ -14,7 +14,12 @@ class UzsakymasAdmin(admin.ModelAdmin):
     inlines = [UzsakymoEiluteInLines]
     list_display = ("automobilis","data" )
 
-admin.site.register(Automobilis)
+class AutomobilisAdmin(admin.ModelAdmin):
+    list_display = ("automobilio_modelis", "valstybinis_nr", "vin_kodas", "klientas" )
+
+
+
+admin.site.register(Automobilis, AutomobilisAdmin)
 admin.site.register(AutomobilioModelis)
 admin.site.register(Paslauga)
 admin.site.register(Uzsakymas, UzsakymasAdmin)
