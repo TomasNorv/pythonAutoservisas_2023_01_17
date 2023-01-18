@@ -17,10 +17,13 @@ class UzsakymasAdmin(admin.ModelAdmin):
 class AutomobilisAdmin(admin.ModelAdmin):
     list_display = ("automobilio_modelis", "valstybinis_nr", "vin_kodas", "klientas" )
 
+class PaslaugaAdmin(admin.ModelAdmin):
+    list_display = ("pavadinimas","kaina" )
+
 
 
 admin.site.register(Automobilis, AutomobilisAdmin)
 admin.site.register(AutomobilioModelis)
-admin.site.register(Paslauga)
+admin.site.register(Paslauga, PaslaugaAdmin)
 admin.site.register(Uzsakymas, UzsakymasAdmin)
 admin.site.register(UzsakymoEilute)
