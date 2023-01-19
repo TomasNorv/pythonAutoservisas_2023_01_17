@@ -10,9 +10,14 @@ from .models import (Automobilis,
 class UzsakymoEiluteInLines(admin.TabularInline):
     model = UzsakymoEilute
     extra = 0
+
+class UzsakymoEiluteAdmin(admin.ModelAdmin):
+      list_display = ("uzsakymas", "paslauga", "kiekis", "kaina")
+
+
 class UzsakymasAdmin(admin.ModelAdmin):
     inlines = [UzsakymoEiluteInLines]
-    list_display = ("automobilis","data" )
+    list_display = ("automobilis", "data", "suma")
 
 class AutomobilisAdmin(admin.ModelAdmin):
     list_display = ("automobilio_modelis", "valstybinis_nr", "vin_kodas", "klientas" )
@@ -21,10 +26,15 @@ class AutomobilisAdmin(admin.ModelAdmin):
 class PaslaugaAdmin(admin.ModelAdmin):
     list_display = ("pavadinimas","kaina" )
 
+class AutomobilioModelisAdmin(admin.ModelAdmin):
+     list_display = ("marke", "modelis")
+
 
 
 admin.site.register(Automobilis, AutomobilisAdmin)
-admin.site.register(AutomobilioModelis)
+admin.site.register(AutomobilioModelis, AutomobilioModelisAdmin)
 admin.site.register(Paslauga, PaslaugaAdmin)
 admin.site.register(Uzsakymas, UzsakymasAdmin)
-admin.site.register(UzsakymoEilute)
+admin.site.register(UzsakymoEilute, UzsakymoEiluteAdmin)
+
+
